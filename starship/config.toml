@@ -1,0 +1,27 @@
+add_newline = false
+
+format = """
+$username\
+$hostname\
+$directory\
+$path\
+$cmd_duration\
+$line_break\
+$jobs\
+$time\
+$git_branch\
+$character\
+"""
+
+[character]
+success_symbol = "[❯](blue)"
+error_symbol = "[❯](red)"
+vicmd_symbol = "[❮](green)"
+
+[git_branch]
+symbol = "\ue725 "
+format = "[$symbol$branch]($style) "
+style = "green"
+
+# [line_break]
+# disabled = true
