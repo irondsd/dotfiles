@@ -1,0 +1,14 @@
+[user]
+	name = Konstantin Mednikov
+	email = irondsd@gmail.com
+	signingkey = 02DA92FFD69D11A390E5E464F0C7A644F1688B37
+[core]
+	editor = subl -n -w
+[push]
+	autoSetupRemote = true
+[pull]
+	rebase = false
+[commit]
+	gpgSign = true
+[gpg]
+	program = /opt/homebrew/bin/gpg
