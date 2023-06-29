@@ -1,3 +1,5 @@
+# https://github.com/linhe0x0/defaults-write
+
 # Set dock hide and unhide instantly
 defaults write com.apple.dock autohide-delay -float 0
 defaults delete com.apple.dock autohide-delay
