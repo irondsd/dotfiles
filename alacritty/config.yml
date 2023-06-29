@@ -1,0 +1,51 @@
+env:
+  TERM: xterm-256color
+
+window:
+  opacity: 1
+  startup_mode: Fullscreen
+  padding:
+    x: 10
+    y: 10
+  dimensions:
+    columns: 120
+    lines: 30
+  decorations: Buttonless
+
+live_config_reload: true
+scrolling:
+    history: 10000
+    multiplier: 10
+selection:
+    semantic_escape_chars: '|:"'' {}()[]<>'
+    save_to_clipboard: true
+
+font:
+  normal:
+    family: "FiraCode Nerd Font Mono"
+    style: Regular
+  bold:
+    family: "FiraCode Nerd Font Mono"
+    style: Bold
+  italic:
+    family: "FiraCode Nerd Font Mono"
+    style: Italic
+  bold_italic:
+    family: "FiraCode Nerd Font Mono"
+    style: Bold Italic
+  size: 14
+  # use_thin_strokes: true
+
+draw_bold_text_with_bright_colors: true
+
+cursor:
+  style: Block
+  unfocused_hollow: true
+  blinking: On
+  blink_interval: 500
+
+key_bindings:
+  - { key: N,      mods: Command,         action: SpawnNewInstance  }
+  - { key: Q,      mods: Command,         action: Quit              }
+  - { key: W,      mods: Command,         action: Quit              }
+  - { key: F,      mods: Command|Control, action: ToggleFullscreen  }
