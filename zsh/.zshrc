@@ -6,7 +6,7 @@ export PATH="$PATH:/Users/irondsd/.kit/bin"
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
 
-ZSH_THEME="ggn00b"
+ZSH_THEME="marea-oscura"
 ENABLE_CORRECTION="false"
 ZSH_DISABLE_COMPFIX=true
 unsetopt correct_all
