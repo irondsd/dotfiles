@@ -63,5 +63,6 @@ alias gcs="git checkout stage"
 alias gcm="git checkout main"
 alias vim="nvim"
 alias vi="nvim"
+alias speedtest="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python3 -"
 
 # eval "$(starship init zsh)"
