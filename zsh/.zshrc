@@ -51,18 +51,23 @@ ff () { osascript -e 'tell application "Finder"'\
 zipf () { zip -r "$1".zip "$1" ; }                  # zipf:         Zip a folder
 zipp () { zip -er "$1".zip "$1" ; }                 # zipp:         Zip a folder with password
 killport () { npx kill-port "$1" ; }                # kill <port>  kills all the process of a port
-alias ls='ls -GFh'
+function take {
+    mkdir -p $1
+    cd $1
+}
 alias hosts="sudo open -a sublime\ text /etc/hosts" 
 alias edit='subl'
 alias zshrc='subl ~/.zshrc'
 alias update="source ~/.zshrc"
 alias pg="ping google.com -c 20" 
-alias ut="python3 ~/bin/ut"
 alias gcd="git checkout dev"
 alias gcs="git checkout stage"
 alias gcm="git checkout main"
 alias vim="nvim"
 alias vi="nvim"
 alias speedtest="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python3 -"
+alias jj="pbpaste | jsonpp | pbcopy"
+alias ls='exa'
+alias la='exa -la'
 
 # eval "$(starship init zsh)"
