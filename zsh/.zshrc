@@ -70,5 +70,6 @@ alias jj="pbpaste | jsonpp | pbcopy"
 alias ls='exa'
 alias la='exa -la'
 alias git-branch-cleanup="git branch | grep -vE 'master|main|dev' | xargs git branch -D"
+alias dir-sizes="du -hs * | sort -hr"
 
 # eval "$(starship init zsh)"
