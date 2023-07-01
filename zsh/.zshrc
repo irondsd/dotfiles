@@ -69,5 +69,6 @@ alias speedtest="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/m
 alias jj="pbpaste | jsonpp | pbcopy"
 alias ls='exa'
 alias la='exa -la'
+alias git-branch-cleanup="git branch | grep -vE 'master|main|dev' | xargs git branch -D"
 
 # eval "$(starship init zsh)"
