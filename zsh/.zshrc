@@ -71,5 +71,6 @@ alias ls='exa'
 alias la='exa -la'
 alias git-branch-cleanup="git branch | grep -vE 'master|main|dev' | xargs git branch -D"
 alias dir-sizes="du -hs * | sort -hr"
+alias dir-size="du -sh ."
 
 # eval "$(starship init zsh)"
