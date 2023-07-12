@@ -17,6 +17,8 @@ plugins=(
     dotenv
     brew
     sudo
+    pass
+    npm
     z
     zsh-syntax-highlighting
     )
