@@ -13,6 +13,8 @@ $git_branch\
 $git_commit\
 $git_state\
 $git_status\
+$battery\
+${custom.vercel}\
 $time"""
 
 [fill]
@@ -20,6 +22,7 @@ symbol = ' '
 
 [directory]
 home_symbol = "~"
+read_only = "\ue672"
 style = "blue"
 
 [character]
@@ -54,21 +57,24 @@ format = "[$symbol$branch]($style) "
 style = "green"
 
 [git_metrics]
-format = '([▴$added]($added_style))([▿$deleted]($deleted_style))'
-added_style = 'italic dimmed green'
-deleted_style = 'italic dimmed red'
-ignore_submodules = true
 disabled = false
-
-[nodejs]
-format = " [node](italic) [◫ ($version)](bold bright-green)"
-version_format = "${raw}"
-detect_files = ["package-lock.json", "yarn.lock"]
-detect_folders = ["node_modules"]
-detect_extensions = []
 
 [rust]
 format = " [rs](italic) [$symbol$version]($style)"
 symbol = "⊃ "
 version_format = "${raw}"
 style = "bold red"
+
+[custom.vercel]
+symbol = "[\uf31e]($style)"
+style = "white"
+detect_folders = [".vercel"]
+disabled = true
+
+[[battery.display]]
+threshold = 30
+style = 'bold red'
+
+[[battery.display]]
+threshold = 50
+style = 'bold yellow'
