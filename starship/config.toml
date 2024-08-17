@@ -6,22 +6,69 @@ $hostname\
 $directory\
 $path\
 $cmd_duration\
-$line_break\
-$jobs\
-$time\
+$character"""
+
+right_format = """
 $git_branch\
-$character\
-"""
+$git_commit\
+$git_state\
+$git_status\
+$time"""
+
+[fill]
+symbol = ' '
+
+[directory]
+home_symbol = "~"
+style = "blue"
 
 [character]
-success_symbol = "[❯](blue)"
+success_symbol = "[❯](green)"
 error_symbol = "[❯](red)"
-vicmd_symbol = "[❮](green)"
+vimcmd_symbol = "[❮](purple)"
+
+[sudo]
+format = "[$symbol]($style)"
+style = "bold italic bright-purple"
+symbol = "⋈┈"
+disabled = false
+
+[username]
+style_user = "bright-yellow bold italic"
+style_root = "purple bold italic"
+format = "[⭘ $user]($style) "
+disabled = false
+show_always = false
+
+[cmd_duration]
+format = "[◄ $duration ](italic white)"
+
+[jobs]
+format = "[$symbol$number]($style) "
+style = "white"
+symbol = "[▶](blue italic)"
 
 [git_branch]
 symbol = "\ue725 "
 format = "[$symbol$branch]($style) "
 style = "green"
 
-# [line_break]
-# disabled = true
+[git_metrics]
+format = '([▴$added]($added_style))([▿$deleted]($deleted_style))'
+added_style = 'italic dimmed green'
+deleted_style = 'italic dimmed red'
+ignore_submodules = true
+disabled = false
+
+[nodejs]
+format = " [node](italic) [◫ ($version)](bold bright-green)"
+version_format = "${raw}"
+detect_files = ["package-lock.json", "yarn.lock"]
+detect_folders = ["node_modules"]
+detect_extensions = []
+
+[rust]
+format = " [rs](italic) [$symbol$version]($style)"
+symbol = "⊃ "
+version_format = "${raw}"
+style = "bold red"

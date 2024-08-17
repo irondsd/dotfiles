@@ -4,27 +4,21 @@ export PATH=/.npm-global/bin:$PATH
 export PATH="$HOME/bin:$PATH"
 export PATH="$PATH:/Users/irondsd/.kit/bin"
 export VOLTA_HOME="$HOME/.volta"
+export PATH=/opt/homebrew/bin:$PATH
 export PATH="$VOLTA_HOME/bin:$PATH"
+PATH=~/.console-ninja/.bin:$PATH
 
-ZSH_THEME="marea-oscura"
-ENABLE_CORRECTION="false"
-ZSH_DISABLE_COMPFIX=true
-unsetopt correct_all
-plugins=(
-    git
-    osx
-    zsh-autosuggestions
-    dotenv
-    brew
-    sudo
-    pass
-    npm
-    z
-    zsh-syntax-highlighting
-    )
+# Activate syntax highlighting
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-source $ZSH/oh-my-zsh.sh
-eval $(/opt/homebrew/bin/brew shellenv)
+# Disable underline
+(( ${+ZSH_HIGHLIGHT_STYLES} )) || typeset -А ZSH_HIGHLIGHT_STYLES
+ZSH_HIGHLIGHT_STYLES[path]=none
+ZSH_HIGHLIGHT_STYLES[path_prefix]=none
+
+# Activate autosuggestions
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
 
 #hidden files
 alias showhidden='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
@@ -63,7 +57,7 @@ alias zshrc='subl ~/.zshrc'
 alias update="source ~/.zshrc"
 alias pg="ping google.com -c 20" 
 alias gcd="git checkout dev"
-alias gcs="git checkout stage"
+alias gcs="git checkout stage-prod"
 alias gcm="git checkout main"
 alias vim="nvim"
 alias vi="nvim"
@@ -74,5 +68,6 @@ alias la='exa -la'
 alias git-branch-cleanup="git branch | grep -vE 'master|main|dev' | xargs git branch -D"
 alias dir-sizes="du -hs * | sort -hr"
 alias dir-size="du -sh ."
+alias disable-apple-music="launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist"
 
-# eval "$(starship init zsh)"
+eval "$(starship init zsh)"
