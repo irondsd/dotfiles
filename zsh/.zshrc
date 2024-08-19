@@ -86,6 +86,7 @@ alias edit='subl'
 alias zshrc='subl ~/.zshrc'
 alias update="source ~/.zshrc"
 alias pg="ping google.com -c 20" 
+alias gco="git checkout"
 alias gcd="git checkout dev"
 alias gcs="git checkout stage-prod"
 alias gcm="git checkout main"
