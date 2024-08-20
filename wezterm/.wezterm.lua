@@ -9,9 +9,12 @@ config.font_size = 13.0
 -- colors
 config.color_scheme = 'Palenight (Gogh)'
 
+-- window
 config.window_decorations = "RESIZE"
-config.enable_tab_bar = false
+config.hide_tab_bar_if_only_one_tab = true
 config.window_background_opacity = 0.85
 config.macos_window_background_blur = 10
+config.window_close_confirmation = 'NeverPrompt'
+
 
 return config
