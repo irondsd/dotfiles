@@ -57,8 +57,8 @@ alias hide="chflags hidden"
 alias unhide="chflags nohidden"
 
 #ip
-alias lip="ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1'"
-alias myip="curl http://ipecho.net/plain; echo"  
+alias lip="ipconfig getifaddr en0"
+alias ip="curl http://ipecho.net/plain; echo"  
 
 #navigation
 alias ..="cd .."
@@ -101,5 +101,6 @@ alias git-branch-cleanup="git branch | grep -vE 'master|main|dev' | xargs git br
 alias dir-sizes="du -hs * | sort -hr"
 alias dir-size="du -sh ."
 alias disable-apple-music="launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist"
+alias gbc="git branch --merged dev | grep -Ev \"(^\*|master|main|dev|stage-prod)\" | xargs git branch -d"
 
 eval "$(starship init zsh)"

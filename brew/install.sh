@@ -13,8 +13,18 @@ brew install zbar
 brew install bat
 brew install volta
 brew install ripgrep
+brew install zbarimg
+brew install fzf
+brew install tmux
+brew install zoxide
+brew install starship
+brew install rmlint
+brew install zsh-autosuggestions
+brew install zsh-syntax-highlighting
+brew install btop
+brew install exa
+brew install pinentry-mac
 
-brew install --cask cron
 brew install --cask firefox
 brew install --cask cleanmymac
 brew install --cask sublime-text
@@ -25,3 +35,5 @@ brew install --cask tunnelblick
 brew install --cask visual-studio-code
 brew install --cask transmission
 brew install --cask notion
+brew install --cask wezterm
+brew install --cask ngrok
