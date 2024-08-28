@@ -22,7 +22,7 @@ brew install rmlint
 brew install zsh-autosuggestions
 brew install zsh-syntax-highlighting
 brew install btop
-brew install exa
+brew install eza
 brew install pinentry-mac
 
 brew install --cask firefox
