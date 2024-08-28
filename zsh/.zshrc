@@ -6,6 +6,7 @@ export PATH="$PATH:/Users/irondsd/.kit/bin"
 export VOLTA_HOME="$HOME/.volta"
 export PATH=/opt/homebrew/bin:$PATH
 export PATH="$VOLTA_HOME/bin:$PATH"
+export GPG_TTY=$(tty)
 PATH=~/.console-ninja/.bin:$PATH
 
 # zoxide
