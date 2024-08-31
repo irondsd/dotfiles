@@ -29,6 +29,7 @@ show_always = false
 
 [hostname]
 ssh_symbol = '🌐'
+style = "bold yellow"
 
 [directory]
 home_symbol = "~"
