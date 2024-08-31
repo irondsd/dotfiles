@@ -15,10 +15,20 @@ $git_state\
 $git_status\
 $battery\
 ${custom.vercel}\
-$time"""
+"""
 
 [fill]
-symbol = ' '
+symbol = '@'
+
+[username]
+style_user = "bright-yellow bold italic"
+style_root = "purple bold italic"
+format = "[⭘ $user]($style) "
+disabled = true
+show_always = false
+
+[hostname]
+ssh_symbol = '🌐'
 
 [directory]
 home_symbol = "~"
@@ -35,13 +45,6 @@ format = "[$symbol]($style)"
 style = "bold italic bright-purple"
 symbol = "⋈┈"
 disabled = false
-
-[username]
-style_user = "bright-yellow bold italic"
-style_root = "purple bold italic"
-format = "[⭘ $user]($style) "
-disabled = false
-show_always = false
 
 [cmd_duration]
 format = "[◄ $duration ](italic white)"
