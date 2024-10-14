@@ -33,7 +33,7 @@ style = "bold yellow"
 
 [directory]
 home_symbol = "~"
-read_only = "\ue672"
+read_only = " \ue672"
 style = "blue"
 
 [character]

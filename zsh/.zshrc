@@ -61,9 +61,7 @@ alias unhide="chflags nohidden"
 alias lip="ipconfig getifaddr en0"
 alias ip="curl http://ipecho.net/plain; echo"  
 
-#navigation
-alias ..="cd .."
-alias ...="cd ../.."
+setopt auto_cd
 
 #macos
 alias f='open -a Finder ./'
@@ -90,7 +88,8 @@ alias pg="ping google.com -c 20"
 alias gcb="git checkout -b"
 alias gco="git checkout"
 alias gcd="git checkout dev"
-alias gcs="git checkout stage-prod"
+alias gcdd="git checkout develop"
+alias gcs="git checkout stage"
 alias gcm="git checkout main"
 alias vim="nvim"
 alias vi="nvim"
@@ -98,7 +97,7 @@ alias speedtest="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/m
 alias jj="pbpaste | jsonpp | pbcopy"
 alias ls='eza'
 alias la='eza -la'
-alias git-branch-cleanup="git branch | grep -vE 'master|main|dev' | xargs git branch -D"
+alias git-branch-cleanup="git branch | grep -vE 'master|main|dev|stage|develop' | xargs git branch -D"
 alias dir-sizes="du -hs * | sort -hr"
 alias dir-size="du -sh ."
 alias disable-apple-music="launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist"

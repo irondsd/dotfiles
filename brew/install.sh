@@ -25,6 +25,7 @@ brew install btop
 brew install eza
 brew install pinentry-mac
 brew install pearcleaner
+brew install onefetch
 
 brew install --cask firefox
 brew install --cask cleanmymac
