@@ -1,2 +1,8 @@
 font-family = "FiraCode Nerd Font Mono Ret"
 theme = Operator Mono Dark
+font-size = 14
+window-theme = system
+window-decoration = false
+window-save-state = always
+window-padding-x = 12
+window-padding-y = 12
