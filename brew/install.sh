@@ -26,6 +26,7 @@ brew install eza
 brew install pinentry-mac
 brew install pearcleaner
 brew install onefetch
+brew install gum
 
 brew install --cask firefox
 brew install --cask cleanmymac
@@ -39,3 +40,4 @@ brew install --cask transmission
 brew install --cask notion
 brew install --cask wezterm
 brew install --cask ngrok
+brew install --cask ghostty
