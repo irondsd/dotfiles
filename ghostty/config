@@ -1,8 +1,12 @@
 font-family = "FiraCode Nerd Font Mono Ret"
-theme = Operator Mono Dark
-font-size = 14
-window-theme = system
-window-decoration = false
+theme = Dark+
+font-size = 13.5
+window-theme = dark
+background-opacity = 0.8
 window-save-state = always
 window-padding-x = 12
 window-padding-y = 12
+background-blur-radius = 20
+macos-titlebar-style = tabs
+window-height = 51
+window-width = 85
