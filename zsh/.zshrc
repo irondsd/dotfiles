@@ -3,14 +3,18 @@ export ZSH="/Users/irondsd/.oh-my-zsh"
 export PATH=/.npm-global/bin:$PATH
 export PATH="$HOME/bin:$PATH"
 export PATH="$PATH:/Users/irondsd/.kit/bin"
-export VOLTA_HOME="$HOME/.volta"
 export PATH=/opt/homebrew/bin:$PATH
-export PATH="$VOLTA_HOME/bin:$PATH"
 export GPG_TTY=$(tty)
 PATH=~/.console-ninja/.bin:$PATH
 
 # zoxide
 eval "$(zoxide init zsh)"
+
+# fnm
+eval "$(fnm env --use-on-cd --shell zsh)"
+
+# starship
+eval "$(starship init zsh)"
 
 # Activate syntax highlighting
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -102,5 +106,3 @@ alias dir-sizes="du -hs * | sort -hr"
 alias dir-size="du -sh ."
 alias disable-apple-music="launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist"
 alias gbc="git branch --merged dev | grep -Ev \"(^\*|master|main|dev|stage-prod)\" | xargs git branch -d"
-
-eval "$(starship init zsh)"

@@ -11,7 +11,7 @@ brew install webp
 brew install neovim
 brew install zbar
 brew install bat
-brew install volta
+brew install fnm
 brew install ripgrep
 brew install zbarimg
 brew install fzf
