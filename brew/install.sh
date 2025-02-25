@@ -27,6 +27,7 @@ brew install pinentry-mac
 brew install pearcleaner
 brew install onefetch
 brew install gum
+brew install jordanbaird-ice
 
 brew install --cask firefox
 brew install --cask cleanmymac
