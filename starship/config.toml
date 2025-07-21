@@ -15,6 +15,7 @@ $git_state\
 $git_status\
 $battery\
 ${custom.vercel}\
+${custom.nodejs}\
 """
 
 [fill]
@@ -70,10 +71,14 @@ version_format = "${raw}"
 style = "bold red"
 
 [custom.vercel]
-symbol = "[\uf31e]($style)"
+symbol = "[▲]($style)"
 style = "white"
 detect_folders = [".vercel"]
-disabled = true
+
+[custom.nodejs]
+symbol = "[]($style)"
+style = "green"
+detect_files = [".nvmrc"]
 
 [[battery.display]]
 threshold = 30
