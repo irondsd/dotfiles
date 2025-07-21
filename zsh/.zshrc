@@ -16,6 +16,12 @@ eval "$(fnm env --use-on-cd --shell zsh)"
 # starship
 eval "$(starship init zsh)"
 
+# direnv
+eval "$(direnv hook zsh)"
+
+# deno
+. "/Users/irondsd/.deno/env"
+
 # Activate syntax highlighting
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
@@ -105,3 +111,4 @@ alias dir-sizes="du -hs * | sort -hr"
 alias dir-size="du -sh ."
 alias gbc="git branch --merged dev | grep -Ev \"(^\*|main|stage|dev|develop)\" | xargs git branch -d"
 alias rm='trash'
+
