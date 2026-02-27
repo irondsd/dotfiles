@@ -14,6 +14,7 @@ $git_commit\
 $git_state\
 $git_status\
 $battery\
+${custom.bun}\
 ${custom.vercel}\
 ${custom.nodejs}\
 """
@@ -87,3 +88,8 @@ style = 'bold red'
 [[battery.display]]
 threshold = 50
 style = 'bold yellow'
+
+[custom.bun]
+symbol = "[]($style)"
+style = "yellow"
+detect_files = ["bun.lock"]
