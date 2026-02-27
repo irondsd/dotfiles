@@ -5,6 +5,9 @@ export PATH="$HOME/bin:$PATH"
 export PATH="$PATH:/Users/irondsd/.kit/bin"
 export PATH=/opt/homebrew/bin:$PATH
 export GPG_TTY=$(tty)
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+export PATH="/Users/irondsd/.antigravity/antigravity/bin:$PATH"
 PATH=~/.console-ninja/.bin:$PATH
 
 # zoxide
@@ -86,10 +89,6 @@ ff () { osascript -e 'tell application "Finder"'\
 zipf () { zip -r "$1".zip "$1" ; }                  # zipf:         Zip a folder
 zipp () { zip -er "$1".zip "$1" ; }                 # zipp:         Zip a folder with password
 killport () { npx kill-port "$1" ; }                # kill <port>  kills all the process of a port
-function take {
-    mkdir -p $1
-    cd $1
-}
 alias hosts="sudo open -a sublime\ text /etc/hosts" 
 alias edit='subl'
 alias zshrc='subl ~/.zshrc'
@@ -107,8 +106,14 @@ alias speedtest="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/m
 alias jj="pbpaste | jsonpp | pbcopy"
 alias ls='eza'
 alias la='eza -la'
-alias dir-sizes="du -hs * | sort -hr"
+alias dir-sizes="du -hs *(D) | sort -hr"
 alias dir-size="du -sh ."
 alias gbc="git branch --merged dev | grep -Ev \"(^\*|main|stage|dev|develop)\" | xargs git branch -d"
 alias rm='trash'
+
+[[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path zsh)"
+
+
+# bun completions
+[ -s "/Users/irondsd/.bun/_bun" ] && source "/Users/irondsd/.bun/_bun"
 
