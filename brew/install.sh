@@ -30,7 +30,6 @@ brew install onefetch
 brew install gum
 
 brew install --cask firefox
-brew install --cask cleanmymac
 brew install --cask sublime-text
 brew install --cask postman
 brew install --cask raycast

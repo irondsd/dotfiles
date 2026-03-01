@@ -1,3 +1,3 @@
-sudo scutil --set ComputerName whatever
-scutil --set HostName whatever
-scutil --set LocalHostName whatever
+sudo scutil --set ComputerName irondsd
+scutil --set HostName irondsd
+scutil --set LocalHostName irondsd

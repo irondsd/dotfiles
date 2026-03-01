@@ -1,7 +1,7 @@
 [user]
 	name = Konstantin Mednikov
 	email = irondsd@gmail.com
-	signingkey = 02DA92FFD69D11A390E5E464F0C7A644F1688B37
+	signingkey = 994FE72A482022DB861A089B8BE3B8EF3776B6AA
 [core]
 	editor = subl -n -w
 [push]
