@@ -91,5 +91,5 @@ style = 'bold yellow'
 
 [custom.bun]
 symbol = "[]($style)"
-style = "yellow"
+style = "#FEFFED"
 detect_files = ["bun.lock"]
