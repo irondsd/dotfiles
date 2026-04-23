@@ -1,14 +1,13 @@
 export PATH
-export ZSH="/Users/irondsd/.oh-my-zsh"
 export PATH=/.npm-global/bin:$PATH
 export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 export PATH="$PATH:/Users/irondsd/.kit/bin"
 export PATH=/opt/homebrew/bin:$PATH
 export GPG_TTY=$(tty)
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 export PATH="/Users/irondsd/.antigravity/antigravity/bin:$PATH"
-PATH=~/.console-ninja/.bin:$PATH
 
 # zoxide
 eval "$(zoxide init zsh)"
@@ -18,12 +17,6 @@ eval "$(fnm env --use-on-cd --shell zsh)"
 
 # starship
 eval "$(starship init zsh)"
-
-# direnv
-eval "$(direnv hook zsh)"
-
-# deno
-. "/Users/irondsd/.deno/env"
 
 # Activate syntax highlighting
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -52,11 +45,6 @@ setopt hist_find_no_dups
 # keybindings
 bindkey "^[[A" history-beginning-search-backward
 bindkey "^[[B" history-beginning-search-forward
-
-# fzf tab
-eval "$(fzf --zsh)"
-autoload -U compinit; compinit
-source ~/bin/fzf-tab/fzf-tab.plugin.zsh
 
 # Completion styling
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
@@ -108,11 +96,9 @@ alias la='eza -la'
 alias dir-sizes="du -hs *(D) | sort -hr"
 alias dir-size="du -sh ."
 alias gbc="git branch --merged dev | grep -Ev \"(^\*|main|stage|dev|develop)\" | xargs git branch -d"
-alias rm='trash'
 
 [[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path zsh)"
 
 
 # bun completions
 [ -s "/Users/irondsd/.bun/_bun" ] && source "/Users/irondsd/.bun/_bun"
-
