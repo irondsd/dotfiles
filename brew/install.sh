@@ -17,7 +17,6 @@ brew install fnm
 brew install ripgrep
 brew install zbarimg
 brew install fzf
-brew install tmux
 brew install zoxide
 brew install starship
 brew install rmlint
@@ -28,6 +27,7 @@ brew install eza
 brew install pinentry-mac
 brew install onefetch
 brew install gum
+brew install micro
 
 brew install --cask firefox
 brew install --cask sublime-text
