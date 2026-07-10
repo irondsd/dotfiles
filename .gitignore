@@ -1,0 +1,4 @@
+# Machine-specific shell env — kept in-repo so it's editable in the editor,
+# but intentionally NOT tracked (differs per machine).
+zsh/.zprofile
+zsh/.zshenv

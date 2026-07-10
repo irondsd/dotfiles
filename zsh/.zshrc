@@ -1,13 +1,7 @@
-export PATH
 export PATH=/.npm-global/bin:$PATH
 export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
-export PATH="$PATH:/Users/irondsd/.kit/bin"
-export PATH=/opt/homebrew/bin:$PATH
 export GPG_TTY=$(tty)
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-export PATH="/Users/irondsd/.antigravity/antigravity/bin:$PATH"
 
 # zoxide
 eval "$(zoxide init zsh)"
@@ -89,6 +83,7 @@ alias gcdd="git checkout develop"
 alias gcs="git checkout stage"
 alias gcm="git checkout main"
 alias vim="nvim"
+alias python="python3"
 alias vi="nvim"
 alias jj="pbpaste | jsonpp | pbcopy"
 alias ls='eza'
