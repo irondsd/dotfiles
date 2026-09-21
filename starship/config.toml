@@ -4,8 +4,9 @@ format = """
 $username\
 $hostname\
 $directory\
-$path\
 $cmd_duration\
+$jobs\
+$sudo\
 $character"""
 
 right_format = """
@@ -13,14 +14,13 @@ $git_branch\
 $git_commit\
 $git_state\
 $git_status\
+$git_metrics\
+$rust\
 $battery\
 ${custom.bun}\
 ${custom.vercel}\
 ${custom.nodejs}\
 """
-
-[fill]
-symbol = '@'
 
 [username]
 style_user = "bright-yellow bold italic"
