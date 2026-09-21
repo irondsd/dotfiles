@@ -2,7 +2,7 @@
 #
 # bootstrap installs things.
 
-cd "$(dirname "$0")/.."
+cd "$(dirname "$0")/.." || exit 1
 DOTFILES=$(pwd -P)
 
 set -e
@@ -10,21 +10,20 @@ set -e
 echo ''
 
 info () {
-  printf "\r  [ \033[00;34m..\033[0m ] $1\n"
+  printf "\r  [ \033[00;34m..\033[0m ] %s\n" "$1"
 }
 
 user () {
-  printf "\r  [ \033[0;33m??\033[0m ] $1\n"
+  printf "\r  [ \033[0;33m??\033[0m ] %b\n" "$1"
 }
 
 success () {
-  printf "\r\033[2K  [ \033[00;32mOK\033[0m ] $1\n"
+  printf "\r\033[2K  [ \033[00;32mOK\033[0m ] %s\n" "$1"
 }
 
 fail () {
-  printf "\r\033[2K  [\033[0;31mFAIL\033[0m] $1\n"
-  echo ''
-  exit
+  printf "\r\033[2K  [\033[0;31mFAIL\033[0m] %s\n\n" "$1" >&2
+  exit 1
 }
 
 link_file () {
@@ -43,7 +42,8 @@ link_file () {
 
       # ignoring exit 1 from readlink in case where file already exists
       # shellcheck disable=SC2155
-      local currentSrc="$(readlink $dst)"
+      local currentSrc
+      currentSrc="$(readlink "$dst")"
 
       if [ "$currentSrc" == "$src" ]
       then
@@ -83,7 +83,7 @@ link_file () {
 
     if [ "$overwrite" == "true" ]
     then
-      rm -rf "$dst"
+      rm -rf -- "$dst"
       success "removed $dst"
     fi
 
@@ -101,17 +101,23 @@ link_file () {
 
   if [ "$skip" != "true" ]  # "false" or empty
   then
-    ln -s "$1" "$2"
+    ln -s "$src" "$dst"
     success "linked $1 to $2"
   fi
 }
 
-
-prop () {
-   PROP_KEY=$1
-   PROP_FILE=$2
-   PROP_VALUE=$(eval echo "$(cat $PROP_FILE | grep "$PROP_KEY" | cut -d'=' -f2)")
-   echo $PROP_VALUE
+expand_link_path () {
+  case "$1" in
+    '$DOTFILES/'*)
+      printf '%s/%s\n' "$DOTFILES" "${1#\$DOTFILES/}"
+      ;;
+    '$HOME/'*)
+      printf '%s/%s\n' "$HOME" "${1#\$HOME/}"
+      ;;
+    *)
+      fail "unsupported path in links.prop: $1"
+      ;;
+  esac
 }
 
 install_dotfiles () {
@@ -119,28 +125,29 @@ install_dotfiles () {
 
   local overwrite_all=false backup_all=false skip_all=false
 
-  find -H "$DOTFILES" -maxdepth 2 -name 'links.prop' -not -path '*.git*' | while read linkfile
+  while IFS= read -r linkfile
   do
-    cat "$linkfile" | while read line
+    while IFS='=' read -r src_template dst_template
     do
         local src dst dir
-        src=$(eval echo "$line" | cut -d '=' -f 1)
-        dst=$(eval echo "$line" | cut -d '=' -f 2)
-        dir=$(dirname $dst)
+        src=$(expand_link_path "$src_template")
+        dst=$(expand_link_path "$dst_template")
+        dir=$(dirname "$dst")
+
+        case "$src" in
+          "$DOTFILES"/*) ;;
+          *) fail "link source is outside the dotfiles repo: $src" ;;
+        esac
+
+        case "$dst" in
+          "$HOME"/*) ;;
+          *) fail "link destination is outside the home directory: $dst" ;;
+        esac
 
         mkdir -p "$dir"
         link_file "$src" "$dst"
-    done
-  done
-}
-
-create_env_file () {
-    if test -f "$HOME/.env.sh"; then
-        success "$HOME/.env.sh file already exists, skipping"
-    else
-        echo "export DOTFILES=$DOTFILES" > $HOME/.env.sh
-        success 'created ~/.env.sh'
-    fi
+    done < "$linkfile"
+  done < <(find -H "$DOTFILES" -maxdepth 2 -name 'links.prop' -not -path '*.git*')
 }
 
 install_zsh_edit_select () {
@@ -164,7 +171,6 @@ install_zsh_edit_select () {
 
 install_dotfiles
 install_zsh_edit_select
-create_env_file
 
 echo ''
 echo ''
