@@ -1,7 +1,6 @@
-export PATH=/.npm-global/bin:$PATH
 export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
-export GPG_TTY=$(tty)
+export GPG_TTY="$TTY"
 
 # zoxide
 eval "$(zoxide init zsh)"
@@ -12,16 +11,13 @@ eval "$(fnm env --use-on-cd --shell zsh)"
 # starship
 eval "$(starship init zsh)"
 
-# Activate syntax highlighting
-source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
 # Disable underline
-(( ${+ZSH_HIGHLIGHT_STYLES} )) || typeset -А ZSH_HIGHLIGHT_STYLES
+(( ${+ZSH_HIGHLIGHT_STYLES} )) || typeset -A ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_STYLES[path]=none
 ZSH_HIGHLIGHT_STYLES[path_prefix]=none
 
 # Activate autosuggestions
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source "${HOMEBREW_PREFIX:-$(brew --prefix)}/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
 
 # Edit the current command line like a text editor: Shift+Arrow selection,
 # Cmd-based editing, and mouse-aware selection support.
@@ -35,7 +31,6 @@ unset ZSH_EDIT_SELECT_PLUGIN
 HISTFILE=~/.zsh_history
 HISTSIZE=5000
 SAVEHIST=$HISTSIZE
-HISTDUP=erase
 setopt appendhistory
 setopt sharehistory
 setopt hist_ignore_space
@@ -52,7 +47,6 @@ bindkey "^[[B" history-beginning-search-forward
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls $realpath'
 
 #hidden files
 alias showhidden='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
@@ -62,7 +56,7 @@ alias unhide="chflags nohidden"
 
 #ip
 alias lip="ipconfig getifaddr en0"
-alias ip="curl http://ipecho.net/plain; echo"  
+alias ip="curl -fsS https://api.ipify.org; echo"
 
 setopt auto_cd
 
@@ -103,5 +97,8 @@ alias gbc="git branch --merged dev | grep -Ev \"(^\*|main|stage|dev|develop)\" |
 [[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path zsh)"
 
 
-# bun completions
-[ -s "/Users/irondsd/.bun/_bun" ] && source "/Users/irondsd/.bun/_bun"
+# Bun completions
+[[ -s "${BUN_INSTALL:-$HOME/.bun}/_bun" ]] && source "${BUN_INSTALL:-$HOME/.bun}/_bun"
+
+# Syntax highlighting must be loaded after all other ZLE plugins and widgets.
+source "${HOMEBREW_PREFIX:-$(brew --prefix)}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
