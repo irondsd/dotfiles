@@ -99,6 +99,9 @@ alias gbc="git branch --merged dev | grep -Ev \"(^\*|main|stage|dev|develop)\" |
 
 # Bun completions
 [[ -s "${BUN_INSTALL:-$HOME/.bun}/_bun" ]] && source "${BUN_INSTALL:-$HOME/.bun}/_bun"
+# Auto-close matching quotes, brackets, and braces. This loads after zsh-abbr
+# so its Space widget can delegate to abbreviation expansion.
+source "${HOMEBREW_PREFIX:-$(brew --prefix)}/share/zsh-autopair/autopair.zsh"
 
 # Syntax highlighting must be loaded after all other ZLE plugins and widgets.
 source "${HOMEBREW_PREFIX:-$(brew --prefix)}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
