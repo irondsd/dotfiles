@@ -13,3 +13,22 @@ window-width = 85
 window-save-state = always
 quit-after-last-window-closed = true
 cursor-click-to-move = true
+
+# zsh-edit-select bindings
+# Forward macOS editing shortcuts to the Zsh command-line editor.
+keybind = cmd+a=csi:97;9u
+keybind = cmd+c=csi:99;9u
+keybind = cmd+x=csi:120;9u
+keybind = cmd+z=csi:122;9u
+keybind = cmd+shift+z=csi:122;10u
+
+# Ghostty handles these modified arrows itself unless they are forwarded.
+keybind = shift+up=csi:1;2A
+keybind = shift+down=csi:1;2B
+
+# Cmd+Shift+Up/Down: select to the beginning/end of the command buffer.
+keybind = cmd+shift+up=csi:1;10A
+keybind = cmd+shift+down=csi:1;10B
+
+# Keep mouse selections available to the plugin and system clipboard.
+copy-on-select = clipboard

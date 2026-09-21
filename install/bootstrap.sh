@@ -143,7 +143,27 @@ create_env_file () {
     fi
 }
 
+install_zsh_edit_select () {
+    local plugin_dir="${XDG_DATA_HOME:-$HOME/.local/share}/zsh/plugins/zsh-edit-select"
+
+    if [ -f "$plugin_dir/zsh-edit-select.plugin.zsh" ]; then
+        success 'zsh-edit-select already installed'
+        return
+    fi
+
+    if [ -e "$plugin_dir" ]; then
+        fail "$plugin_dir exists but is not a valid zsh-edit-select installation"
+    fi
+
+    mkdir -p "$(dirname "$plugin_dir")"
+    git clone --depth=1 \
+      https://github.com/Michael-Matta1/zsh-edit-select.git \
+      "$plugin_dir"
+    success 'installed zsh-edit-select'
+}
+
 install_dotfiles
+install_zsh_edit_select
 create_env_file
 
 echo ''

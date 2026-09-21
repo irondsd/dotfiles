@@ -23,6 +23,14 @@ ZSH_HIGHLIGHT_STYLES[path_prefix]=none
 # Activate autosuggestions
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
+# Edit the current command line like a text editor: Shift+Arrow selection,
+# Cmd-based editing, and mouse-aware selection support.
+ZSH_EDIT_SELECT_PLUGIN="${XDG_DATA_HOME:-$HOME/.local/share}/zsh/plugins/zsh-edit-select/zsh-edit-select.plugin.zsh"
+if [[ -r "$ZSH_EDIT_SELECT_PLUGIN" ]]; then
+  source "$ZSH_EDIT_SELECT_PLUGIN"
+fi
+unset ZSH_EDIT_SELECT_PLUGIN
+
 # History
 HISTFILE=~/.zsh_history
 HISTSIZE=5000
