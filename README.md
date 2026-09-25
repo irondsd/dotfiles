@@ -19,7 +19,17 @@ My macOS apps, shell config, and setup scripts. On a new Mac:
    bash zsh/prepare.sh
    ```
 
-3. Open OrbStack, finish its first-run setup, then select its Docker context:
+3. Open a new terminal, then install Node.js LTS with `fnm`. npm comes with Node.js; Bun was installed from the Brewfile.
+
+   ```sh
+   fnm install --lts
+   fnm use lts/latest
+   node --version
+   npm --version
+   bun --version
+   ```
+
+4. Open OrbStack, finish its first-run setup, then select its Docker context:
 
    ```sh
    open -a OrbStack
