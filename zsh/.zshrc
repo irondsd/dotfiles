@@ -11,6 +11,11 @@ eval "$(fnm env --use-on-cd --shell zsh)"
 # starship
 eval "$(starship init zsh)"
 
+# Completion system, including completions installed by zsh-abbr.
+fpath=("${HOMEBREW_PREFIX:-$(brew --prefix)}/share/zsh-abbr" $fpath)
+autoload -Uz compinit
+compinit
+
 # Disable underline
 (( ${+ZSH_HIGHLIGHT_STYLES} )) || typeset -A ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_STYLES[path]=none
@@ -99,6 +104,10 @@ alias gbc="git branch --merged dev | grep -Ev \"(^\*|main|stage|dev|develop)\" |
 
 # Bun completions
 [[ -s "${BUN_INSTALL:-$HOME/.bun}/_bun" ]] && source "${BUN_INSTALL:-$HOME/.bun}/_bun"
+
+# Expand short abbreviations into readable commands before execution.
+source "${HOMEBREW_PREFIX:-$(brew --prefix)}/share/zsh-abbr/zsh-abbr.zsh"
+
 # Auto-close matching quotes, brackets, and braces. This loads after zsh-abbr
 # so its Space widget can delegate to abbreviation expansion.
 source "${HOMEBREW_PREFIX:-$(brew --prefix)}/share/zsh-autopair/autopair.zsh"

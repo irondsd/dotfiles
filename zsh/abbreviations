@@ -1,0 +1,6 @@
+abbr "gco"="git checkout"
+abbr "gcdd"="git checkout develop"
+abbr "gcd"="git checkout dev"
+abbr "gcm"="git checkout main"
+abbr "gcb"="git checkout -b"
+
