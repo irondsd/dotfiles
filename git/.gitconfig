@@ -2,7 +2,7 @@
 	name = Konstantin Mednikov
 	email = irondsd@gmail.com
 [core]
-	editor = subl -n -w
+	editor = unt -n -w
 [push]
 	autoSetupRemote = true
 [pull]

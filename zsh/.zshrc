@@ -78,9 +78,9 @@ ff () { osascript -e 'tell application "Finder"'\
 zipf () { zip -r "$1".zip "$1" ; }                  # zipf:         Zip a folder
 zipp () { zip -er "$1".zip "$1" ; }                 # zipp:         Zip a folder with password
 killport () { npx kill-port "$1" ; }                # kill <port>  kills all the process of a port
-alias hosts="sudo open -a sublime\ text /etc/hosts" 
-alias edit='subl'
-alias zshrc='subl ~/.zshrc'
+alias hosts="sudo open -a untitled /etc/hosts" 
+alias edit='unt'
+alias zshrc='unt ~/.zshrc'
 alias update="source ~/.zshrc"
 alias pg="ping google.com -c 20" 
 alias vim="nvim"
